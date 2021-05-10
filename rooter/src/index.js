@@ -27,6 +27,8 @@ const App = () => {
           <Route path="/documentation">
             <Documentation />
           </Route>
+        </Switch>
+        <Switch>
           <Route path="/book/:bookSlug">
             <Books />
           </Route>

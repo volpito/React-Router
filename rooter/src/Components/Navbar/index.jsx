@@ -4,9 +4,6 @@ import books from '../../data/books';
 
 const Navbar = () => {
 
-  const [book, setBook] = useState(undefined)
-  setBook(books.map(a => a))
-
   return (
     <nav>
       <ul>
@@ -19,15 +16,13 @@ const Navbar = () => {
       <li>    
         <Link to="/Documentation"> Documentation </Link>
       </li>
-      <li>    
-      <Link to="/book"> Books </Link>
-      </li>
-      <li>    
-      <Link to="/book"> Books </Link>
-      </li>
-      <li>    
-      <Link to="/book"> Books </Link>
-      </li>
+      {books.map((book, i) => {
+        return (
+            <li key={i}>    
+              <Link to={"/book/" + book.slug}>{book.slug}</Link>
+            </li>
+        );
+      })}
     </ul>
     </nav>
   )
